@@ -1,19 +1,8 @@
-/**
- * 
- */
+// COP 2006 Assignment #1 
 
-
-/**
- * @author Anon
- *
- */
 import java.util.Scanner;
 
 public class AreaCalc {
-
-	/**
-	 * @param args
-	 */
 	
 	// multiplies the two inputs then divides them by 2 
 	public static double calcTriangleArea(int b, int h){
@@ -27,13 +16,18 @@ public class AreaCalc {
 	
 	public static void main(String[] args) {
 		// TODO format output values to match assignment requirements
-		int choice;
-		double r;
-		Scanner in = new Scanner(System.in);
+		int choice; //user menu selection variable
+		double r; 	//radius
+		Scanner in = new Scanner(System.in); //declare and initialize Scanner object
+		
+		//User selection menu
 		System.out.print("Please enter either 1 or 2: ");
 		choice = in.nextInt();
 		switch (choice){
 			case 1: 
+				
+				break;
+			case 2:
 				System.out.print("Please enter a non-negative number for radius: ");
 				r = in.nextDouble();
 				if (r < 0){
@@ -43,8 +37,6 @@ public class AreaCalc {
 					System.out.println("Area of a circle with radius="+r+": "+ calcCircleArea(r));
 				}
 				
-				break;
-			case 2:
 				break;
 			default:
 				System.out.println("Please rerun the program entering either " +
