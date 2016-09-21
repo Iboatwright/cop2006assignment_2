@@ -26,58 +26,58 @@ public class AreaCalc {
 		//User selection menu
 		System.out.print("Please enter either 1 or 2: ");
 		choice = in.nextInt();
+		
+		//switch uses the user input from choice to activate a specific case
 		switch (choice){
-			case 1: 
+			case 1: // Triangle Area Calculation
 				System.out.print("Please enter two non-negative integers for "
 						+ "base and height: ");
 				b = in.nextInt();
 				h = in.nextInt();
-				if ((b < 0) || (h < 0)){
-					int err;//
+				
+				if ((b < 0) || (h < 0)){ //test for negative inputs
+					int err;//negative number error variable
 					err = (b<0)?b:h; //assign the negative number to err var
 					System.out.println("Number " + err + " entered is "
 							+ "negative. Program exits.");
-					System.exit(0);
+					System.exit(0); //quit program cleanly
 				}
-				else {
+				else {//calculate area and display formatted result
 					a = "" + calcTriangleArea(b,h); //get triangle area
-					// format area for output
+					// format area for pretty output
 					a = a.indexOf(".") < 0 ? a : 
-						a.replaceAll("([0-9]{1,3})*$", "$1").replaceAll("0*$", "").replaceAll("\\.$", "");
-					
+						a.replaceAll("([0-9]{1,3})*$", "$1")
+							.replaceAll("0*$", "").replaceAll("\\.$", "");
 					a = a.indexOf(".") < 0 ? a + ".0":a;
 					System.out.print("Area of a triangle with base=" + b +
 							", height=" + h +": "+ a);
-							
-//					System.out.format("%.3f%n", calcTriangleArea(b,h));
 				}
 				break;
-			case 2:
+			case 2://Circle Area Calculation
 				System.out.print("Please enter a non-negative number for "
 						+ "radius: ");
 				r = in.nextDouble();
-				if (r < 0){
+				if (r < 0){//test for negative input
 					System.out.println("Number " + r + " entered is negative. "
 							+ "Program exits.");
-					System.exit(0);
+					System.exit(0);//end program
 				}
-				else {
+				else {//calculate area and display formatted result
 					a = "" + calcCircleArea(r); //get circle area
-//					a = "" + calcCircleArea(r);
-					// format area for output
+					// format area for pretty output
 					a = a.indexOf(".") < 0 ? a : 
-						a.replaceAll("([0-9]{1,3})*$", "$1").replaceAll("0*$", "").replaceAll("\\.$", "");
+						a.replaceAll("([0-9]{1,3})*$", "$1")
+							.replaceAll("0*$", "").replaceAll("\\.$", "");
 					a = a.indexOf(".") < 0 ? a + ".0":a;
 					System.out.print("Area of a circle with radius="+r+": " 
 							+ a);
-//					System.out.format("%.3f%n", calcCircleArea(r));
 				}
 				
 				break;
-			default:
+			default: //some value other than 1 or 2 was entered by the user
 				System.out.println("Please rerun the program entering either "
 						+ "1 or 2.");
-				System.exit(0);
+				System.exit(0);//end program
 		}
 	}
 
